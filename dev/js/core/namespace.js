@@ -1,0 +1,1 @@
+this.wd = this.wd || {};
