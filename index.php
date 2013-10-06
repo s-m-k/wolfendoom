@@ -48,6 +48,7 @@
             <img id="bush" src="assets/bush.png" alt="" />
             <img id="stone" src="assets/stone.png" alt=""/>
             <img id="sta" src="assets/sta.png" alt=""/>
+            <img id="zombie" src="assets/zombie.png" alt=""/>
             <img id="hud-pistol" src="assets/pistol.png" alt=""/>
         </div>
         <?php

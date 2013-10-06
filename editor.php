@@ -36,11 +36,26 @@
                 width: 100%;
             }
 
+            #sprites-pal .sprite-label {
+                border: 1px solid #666;
+                margin: 1px;
+                display: block;
+                float: left;
+            }
+
             .sprite {
                 background: white;
                 top: 2px;
                 margin-left: 16px;
                 position: relative;
+            }
+
+            .marker {
+                border: 4px solid green;
+            }
+
+            .clearfix {
+                clear: both;
             }
 
             #panel textarea {
@@ -73,22 +88,27 @@
             <hr>
             Sprites:
             <div id="sprites-pal">
-                <label>
+                <label class="sprite-label">
                     N/A
                     <input type="radio" name="sprite" value="" checked />
                 </label>
-                <label>
+                <label class="sprite-label">
                     <img id="bush" class="sprite" src="assets/bush.png" alt=""/>
                     <input type="radio" name="sprite" value="bush" />
                 </label>
-                <label>
+                <label class="sprite-label">
                     <img id="sta" class="sprite" src="assets/sta.png" alt=""/>
                     <input type="radio" name="sprite" value="sta" />
                 </label>
-                <label>
+                <label class="sprite-label">
                     <img id="stone" class="sprite" src="assets/stone.png" alt=""/>
                     <input type="radio" name="sprite" value="stone" />
                 </label>
+                <label class="sprite-label">
+                    <img id="m_zombie" class="sprite marker" src="assets/markers/zombie.png" alt=""/>
+                    <input type="radio" name="sprite" value="m_zombie" />
+                </label>
+                <div class="clearfix"></div>
             </div>
             <label>
                 Vertical pos.:
@@ -104,7 +124,7 @@
             </label><br>
             <label>
                 Sprites JSON:
-                <textarea id="sprites-json" rows="8" cols="8">[{"x":476,"y":192,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":516,"y":125,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":447,"y":127,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":708,"y":264,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":679,"y":158,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":615,"y":323,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":629,"y":399,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":651,"y":519,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":518,"y":546,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":557,"y":496,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":412,"y":507,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":422,"y":549,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":417,"y":338,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":534,"y":341,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":865,"y":460,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":914,"y":327,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":975,"y":136,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":905,"y":51,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1077,"y":413,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1086,"y":324,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1252,"y":468,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":931,"y":472,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1354,"y":238,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1442,"y":266,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1430,"y":230,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1206,"y":244,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":468,"y":170,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":511,"y":226,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":695,"y":241,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":720,"y":449,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":618,"y":448,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":419,"y":481,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":541,"y":537,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":1075,"y":462,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":964,"y":264,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":954,"y":70,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":837,"y":155,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":1129,"y":360,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":1320,"y":209,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":834,"y":571,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":447,"y":365,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":715,"y":137,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":603,"y":178,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":486,"y":120,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":559,"y":561,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":592,"y":412,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":847,"y":415,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":1122,"y":466,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":718,"y":182,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":945,"y":138,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":1479,"y":249,"z":80,"radius":16,"obstacle":true,"id":"bush"}]</textarea>
+                <textarea id="sprites-json" rows="8" cols="8">[{"x":476,"y":192,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":516,"y":125,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":447,"y":127,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":708,"y":264,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":679,"y":158,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":615,"y":323,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":629,"y":399,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":651,"y":519,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":518,"y":546,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":557,"y":496,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":412,"y":507,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":422,"y":549,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":417,"y":338,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":534,"y":341,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":865,"y":460,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":914,"y":327,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":975,"y":136,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":905,"y":51,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1077,"y":413,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1086,"y":324,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1252,"y":468,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":931,"y":472,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1354,"y":238,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1442,"y":266,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1430,"y":230,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":1206,"y":244,"z":159,"radius":16,"obstacle":false,"id":"stone"},{"x":468,"y":170,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":511,"y":226,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":695,"y":241,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":720,"y":449,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":618,"y":448,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":419,"y":481,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":541,"y":537,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":1075,"y":462,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":964,"y":264,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":954,"y":70,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":837,"y":155,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":1129,"y":360,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":1320,"y":209,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":834,"y":571,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":447,"y":365,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":715,"y":137,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":603,"y":178,"z":-158,"radius":16,"obstacle":false,"id":"sta"},{"x":486,"y":120,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":559,"y":561,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":592,"y":412,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":847,"y":415,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":1122,"y":466,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":718,"y":182,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":945,"y":138,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":1479,"y":249,"z":80,"radius":16,"obstacle":true,"id":"bush"},{"x":666,"y":258,"id":"m_zombie","marker":true},{"x":425,"y":349,"id":"m_zombie","marker":true},{"x":412,"y":538,"id":"m_zombie","marker":true},{"x":535,"y":479,"id":"m_zombie","marker":true},{"x":554,"y":519,"id":"m_zombie","marker":true},{"x":721,"y":485,"id":"m_zombie","marker":true},{"x":925,"y":315,"id":"m_zombie","marker":true},{"x":983,"y":232,"id":"m_zombie","marker":true},{"x":982,"y":89,"id":"m_zombie","marker":true},{"x":1400,"y":240,"id":"m_zombie","marker":true},{"x":1310,"y":230,"id":"m_zombie","marker":true},{"x":1055,"y":452,"id":"m_zombie","marker":true},{"x":1104,"y":355,"id":"m_zombie","marker":true}]</textarea>
             </label>
         </form>
         <?php

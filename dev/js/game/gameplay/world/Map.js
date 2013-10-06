@@ -2,6 +2,7 @@
 /*include:js/core/math.js*/
 /*include:js/game/core/renderer.js*/
 /*include:js/game/core/Sprite.js*/
+/*include:js/game/core/assets.js*/
 /*include:js/game/gameplay/world/Wall.js*/
 /*include:js/game/gameplay/world/Door.js*/
 
@@ -10,11 +11,12 @@
         renderer = wd.renderer,
         Wall = wd.Wall,
         Door = wd.Door,
-        Sprite = wd.Sprite;
+        Sprite = wd.Sprite,
+        assets = wd.assets;
 
     wd.Map = (function () {
-        var wallImage = document.querySelector('#wall'),
-            doorImage = document.querySelector('#door'),
+        var wallImage = assets.image('wall'),
+            doorImage = assets.image('door'),
             collisionResultCache = {},
             spritesRendered = [];
 
@@ -84,18 +86,22 @@
             return createBSPNode(map.doorGroups, jsonNode);
         }
 
-        function addSprites(map, json) {
+        function addSprites(map, json, markerCallback) {
             var sprites = JSON.parse(json),
                 newSprites = [];
 
             sprites.forEach(function (sprite) {
-                newSprites.push(new Sprite({
-                    asset: document.querySelector('#' + sprite.id),
-                    position: { x: sprite.x, y: sprite.y, z: sprite.z },
-                    radius: sprite.radius,
-                    obstacle: sprite.obstacle,
-                    parentMap: map
-                }));
+                if (sprite.marker) {
+                    markerCallback.call(map, sprite.id.replace(/^m_/, ''), sprite);
+                } else {
+                    newSprites.push(new Sprite({
+                        asset: document.querySelector('#' + sprite.id),
+                        position: { x: sprite.x, y: sprite.y, z: sprite.z },
+                        radius: sprite.radius,
+                        obstacle: sprite.obstacle,
+                        parentMap: map
+                    }));
+                }
             });
 
             return newSprites;
@@ -159,7 +165,9 @@
         function Map(config) {
             this.doorGroups = {};
             this.bsp = jsonToBSP(this, config.jsonBSP);
-            this.sprites = addSprites(this, config.jsonSprites || []);
+            this.sprites = addSprites(this,
+                config.jsonSprites || [],
+                config.markerCallback || function () { });
         }
 
         Map.prototype = {

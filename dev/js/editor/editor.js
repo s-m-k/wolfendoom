@@ -37,6 +37,10 @@ window.onload = function () {
                 render();
             }
 
+            function isMarker(spriteId) {
+                return /^m_/.test(spriteId);
+            }
+
             function render(bsp) {
                 renderer.clear();
 
@@ -125,14 +129,23 @@ window.onload = function () {
                     map.removeSpriteAt(event.x, event.y);
                     render();
                 } else {
-                    map.addSprite({
-                        x: event.x,
-                        y: event.y,
-                        z: +(document.querySelector('#sprite-z').value),
-                        radius: +(document.querySelector('#sprite-radius').value),
-                        obstacle: document.querySelector('#sprite-obstacle').checked,
-                        id: selectedSprite
-                    });
+                    if (isMarker(selectedSprite)) {
+                        map.addSprite({
+                            x: event.x,
+                            y: event.y,
+                            id: selectedSprite,
+                            marker: true
+                        });
+                    } else {
+                        map.addSprite({
+                            x: event.x,
+                            y: event.y,
+                            z: +(document.querySelector('#sprite-z').value),
+                            radius: +(document.querySelector('#sprite-radius').value),
+                            obstacle: document.querySelector('#sprite-obstacle').checked,
+                            id: selectedSprite
+                        });
+                    }
                     render();
                 }
             }

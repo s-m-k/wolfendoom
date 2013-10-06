@@ -14,7 +14,11 @@
 
         requestAnimFrame = window.webkitRequestAnimationFrame ||
             window.mozRequestAnimationFrame ||
-            window.requestAnimationFrame;
+            window.msRequestAnimationFrame ||
+            window.requestAnimationFrame ||
+            function (frame) {
+                setTimeout(frame, 1000 / 60);
+            };
 
         function start() {
             var frameRenderTime, fps;

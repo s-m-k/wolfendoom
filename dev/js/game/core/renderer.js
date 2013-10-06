@@ -165,7 +165,7 @@
                 ((asset.width * currentTexture) | 0) % asset.width,
                 partAssetHeight * depthToDepthLevel(currentDepth),
                 1, partAssetHeight,
-                x | 0, (currentDepth * (frustum.position.z - wallHeight)) | 0,
+                x | 0, (currentDepth * (frustum.position.z - wallHeight)),
                 1, currentDepth * wallHeight * 2);
         }
 
