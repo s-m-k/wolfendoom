@@ -4,7 +4,7 @@
   "description": "",
   "main": "js/game.js",
   "dependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~1.5.3",
     "grunt-webmake": "~0.1.2"
   },
   "devDependencies": {},
